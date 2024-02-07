@@ -5,6 +5,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "lint": "eslint . --ext .ts,.tsx --cache",
+    "build": "tsc",
     "prepare": "husky"
   },
   "lint-staged": {
@@ -21,7 +22,8 @@
     "eslint-config-prettier": "9.1.0",
     "husky": "^9.0.5",
     "lint-staged": "^15.2.0",
-    "prettier": "^3.2.4"
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3"
   },
   "engines": {
     "node": "^20.11",
