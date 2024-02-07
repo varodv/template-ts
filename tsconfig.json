@@ -1,11 +1,11 @@
 {
   "include": ["src/**/*"],
-  "exclude": ["**/*.test.ts"],
   "compilerOptions": {
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "module": "esnext",
+    "types": ["vitest/globals"],
     "outDir": "dist",
     "declaration": true,
     "declarationMap": true,
