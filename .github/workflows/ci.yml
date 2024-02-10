@@ -14,34 +14,50 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  ci:
-    strategy:
-      matrix:
-        script:
-          - lint
-          - build
-          - test
-
-    name: ${{ matrix.script }}
-
+  lint:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup node
-        uses: actions/setup-node@v4
+      - name: Install
+        uses: ./.github/actions/install
+
+      - name: Cache
+        uses: actions/cache@v4
         with:
-          node-version: ^20.11
+          path: |
+            ~/.cache/eslint/
+          key: ${{ runner.os }}-eslint-${{ hashFiles('**/pnpm-lock.yaml', '**/.eslintrc.cjs') }}
+          restore-keys: |
+            ${{ runner.os }}-eslint-
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: ^8
+      - name: Run linter
+        run: pnpm run lint --cache-strategy content --cache-location ~/.cache/eslint/template-ts
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+  build:
+    runs-on: ubuntu-latest
 
-      - name: Run ${{ matrix.script }}
-        run: pnpm run ${{ matrix.script }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install
+        uses: ./.github/actions/install
+
+      - name: Build
+        run: pnpm run build
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install
+        uses: ./.github/actions/install
+
+      - name: Test
+        run: pnpm run test
