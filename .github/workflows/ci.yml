@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-eslint-
 
       - name: Run linter
-        run: pnpm run lint --cache-strategy content --cache-location ~/.cache/eslint/template-ts
+        run: pnpm run lint:ci
 
   build:
     runs-on: ubuntu-latest

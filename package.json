@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "lint": "eslint . --ext .ts,.tsx --cache",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:ci": "pnpm run lint --cache --cache-strategy content --cache-location ~/.cache/eslint/template-ts",
     "build": "tsc --project tsconfig.build.json",
     "test": "vitest run",
     "coverage": "vitest run --coverage",
