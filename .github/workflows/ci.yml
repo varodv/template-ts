@@ -22,6 +22,8 @@ jobs:
           - build
           - test
 
+    name: ${{ matrix.script }}
+
     runs-on: ubuntu-latest
 
     steps:
