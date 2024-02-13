@@ -26,9 +26,9 @@ jobs:
 
       - name: Run coverage
         run: |
-          echo "COVERAGE<<EOF" >> $GITHUB_ENV
+          echo 'COVERAGE<<EOF' >> $GITHUB_ENV
           pnpm run coverage >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+          echo EOF >> $GITHUB_ENV
 
       - name: Run script
         uses: actions/github-script@v7
