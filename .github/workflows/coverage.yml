@@ -37,7 +37,7 @@ jobs:
             const output = process.env.COVERAGE_OUTPUT;
             const summary = output.split('\n').find(line => line.startsWith('All files'));
             const [file, stmts, branch, funcs, lines] = summary.split(' | ').map(cell => cell.trim());
-            github.issues.createComment({
+            github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
