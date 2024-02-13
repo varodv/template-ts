@@ -26,15 +26,20 @@ jobs:
 
       - name: Run coverage
         run: |
-          echo 'COVERAGE<<EOF' >> $GITHUB_ENV
+          echo 'COVERAGE_OUTPUT<<EOF' >> $GITHUB_ENV
           pnpm run coverage >> $GITHUB_ENV
           echo EOF >> $GITHUB_ENV
 
-      - name: Run script
+      - name: Comment PR
         uses: actions/github-script@v7
         with:
           script: |
-            const coverage = process.env.COVERAGE;
-            const summary = coverage.split('\n').find(line => line.startsWith('All files'));
-            const result = summary.split(' | ')[4].trim();
-            console.log(result);
+            const output = process.env.COVERAGE_OUTPUT;
+            const summary = output.split('\n').find(line => line.startsWith('All files'));
+            const [file, stmts, branch, funcs, lines] = summary.split(' | ').map(cell => cell.trim());
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Coverage: ${lines}% Lines`
+            });
