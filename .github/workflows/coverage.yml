@@ -40,7 +40,12 @@ jobs:
             const [file, stmtsPct, branchPct, funcsPct, linesPct] = summary
               .split(' | ')
               .map((cell) => cell.trim());
-            return linesPct;
+            return {
+              stmtsPct,
+              branchPct,
+              funcsPct,
+              linesPct,
+            };
           result-encoding: string
 
       - name: Print summary
