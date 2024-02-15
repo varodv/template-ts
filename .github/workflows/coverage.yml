@@ -41,6 +41,7 @@ jobs:
               .split(' | ')
               .map((cell) => cell.trim());
             return linesPct;
+          result-encoding: string
 
-      - run: |
-          echo "Summary: ${steps.get-summary.outputs.result }"
+      - name: Print summary
+        run: echo "${{steps.get-summary.outputs.result}}"
