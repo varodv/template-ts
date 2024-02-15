@@ -46,7 +46,25 @@ jobs:
               funcsPct,
               linesPct,
             };
-          result-encoding: string
 
-      - name: Print summary
-        run: echo "${{steps.get-summary.outputs.result}}"
+      - name: Generate badge
+        uses: emibcn/badge-action@v2.0.3
+        with:
+          label: Coverage
+          status: ${{ steps.get-summary.outputs.result }}%
+          color: ${{
+            steps.get-summary.outputs.result > 90 && 'green'              ||
+            steps.get-summary.outputs.result > 80 && 'yellow,green'       ||
+            steps.get-summary.outputs.result > 70 && 'yellow'             ||
+            steps.get-summary.outputs.result > 60 && 'orange,yellow'      ||
+            steps.get-summary.outputs.result > 50 && 'orange'             ||
+            steps.get-summary.outputs.result > 40 && 'red,orange'         ||
+            steps.get-summary.outputs.result > 30 && 'red,red,orange'     ||
+            steps.get-summary.outputs.result > 20 && 'red,red,red,orange' ||
+            'red' }}
+          path: .github/badges/coverage.svg
+
+      - name: Push badge
+        run: |
+          git commit -a -m "Update coverage badge"
+          git push
