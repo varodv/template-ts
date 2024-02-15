@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          ref: ${{ github.head_ref  }}
 
       - name: Install
         uses: ./.github/actions/install
@@ -70,6 +70,5 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git checkout HEAD^
           git commit -a -m "Update coverage badge"
           git push
