@@ -40,12 +40,7 @@ jobs:
             const [file, stmtsPct, branchPct, funcsPct, linesPct] = summary
               .split(' | ')
               .map((cell) => cell.trim());
-            return {
-              stmtsPct,
-              branchPct,
-              funcsPct,
-              linesPct,
-            };
+            return linesPct;
 
       - run: |
           echo "Summary: ${steps.get-summary.outputs.result }"
