@@ -53,22 +53,22 @@ jobs:
         uses: emibcn/badge-action@v2.0.3
         with:
           label: Coverage
-          status: ${{ steps.get-summary.outputs.result }}%
+          status: ${{ steps.get-summary.outputs.result.linesPct }}%
           color: ${{
-            steps.get-summary.outputs.result > 90 && 'green'              ||
-            steps.get-summary.outputs.result > 80 && 'yellow,green'       ||
-            steps.get-summary.outputs.result > 70 && 'yellow'             ||
-            steps.get-summary.outputs.result > 60 && 'orange,yellow'      ||
-            steps.get-summary.outputs.result > 50 && 'orange'             ||
-            steps.get-summary.outputs.result > 40 && 'red,orange'         ||
-            steps.get-summary.outputs.result > 30 && 'red,red,orange'     ||
-            steps.get-summary.outputs.result > 20 && 'red,red,red,orange' ||
+            steps.get-summary.outputs.result.linesPct > 90 && 'green'              ||
+            steps.get-summary.outputs.result.linesPct > 80 && 'yellow,green'       ||
+            steps.get-summary.outputs.result.linesPct > 70 && 'yellow'             ||
+            steps.get-summary.outputs.result.linesPct > 60 && 'orange,yellow'      ||
+            steps.get-summary.outputs.result.linesPct > 50 && 'orange'             ||
+            steps.get-summary.outputs.result.linesPct > 40 && 'red,orange'         ||
+            steps.get-summary.outputs.result.linesPct > 30 && 'red,red,orange'     ||
+            steps.get-summary.outputs.result.linesPct > 20 && 'red,red,red,orange' ||
             'red' }}
           path: .github/badges/coverage.svg
 
       - name: Push badge
         run: |
           git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
+          git config --local user.name "github-actions[bot]"
           git commit -a -m "Update coverage badge"
           git push
