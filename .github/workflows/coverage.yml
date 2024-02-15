@@ -39,9 +39,10 @@ jobs:
           script: |
             const output = process.env.COVERAGE_OUTPUT;
             const summary = output.split('\n').find((line) => line.startsWith('All files'));
-            const [file, stmtsPct, branchPct, funcsPct, linesPct] = summary
+            const [stmtsPct, branchPct, funcsPct, linesPct] = summary
               .split(' | ')
-              .map((cell) => cell.trim());
+              .slice(1)
+              .map(Number);
             return linesPct;
 
       - name: Generate badge
