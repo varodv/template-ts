@@ -1,6 +1,10 @@
 name: labeler
 
-on: pull_request
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}
