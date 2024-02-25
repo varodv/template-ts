@@ -40,8 +40,7 @@ jobs:
                 repo: context.repo.repo,
                 issue_number: context.issue.number,
               })
-            ); // .map((label) => label.name);
-            console.log(prLabels);
+            ).data.map((label) => label.name);
             const prTypeLabels = [];
             for (const label of repoLabels) {
               if (prBody.includes(`[x] ${label}: `)) {
