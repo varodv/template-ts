@@ -45,11 +45,11 @@ jobs:
             for (const label of repoLabels) {
               if (prBody.includes(`[x] ${label}: `)) {
                 if (!prLabels.includes(label)) {
-                  await github.rest.issues.addLabel({
+                  await github.rest.issues.addLabels({
                     owner: context.repo.owner,
                     repo: context.repo.repo,
                     issue_number: context.issue.number,
-                    name: label,
+                    labels: [label],
                   });
                 }
                 if (typeLabels.includes(label)) {
