@@ -14,6 +14,6 @@
     "esModuleInterop": true,
     "jsx": "preserve",
     "target": "esnext",
-    "skipLibCheck": true,
-  },
+    "skipLibCheck": true
+  }
 }
