@@ -40,7 +40,7 @@ jobs:
             return linesPct;
 
       - name: Generate badge
-        uses: emibcn/badge-action@v2.0.3
+        uses: emibcn/badge-action@v2
         with:
           label: Coverage
           status: ${{ steps.get-result.outputs.result }}%
