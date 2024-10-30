@@ -6,3 +6,11 @@
 [![coverage](https://raw.githubusercontent.com/varodv/template-ts/main/.github/badges/coverage.svg)](https://github.com/varodv/template-ts/actions/workflows/coverage.yml)
 
 Template repository for TypeScript projects.
+
+- [ ] Use this template to create a new repository.
+- [ ] Configure the new repository (Settings > General).
+- [ ] Set up branch protection rules if needed (Settings > Branches).
+- [ ] Give read and write permissions to workflows (Settings > Actions - General, needed for [coverage.yml](https://github.com/varodv/template-ts/blob/main/.github/workflows/coverage.yml)).
+- [ ] Review pull requests labels.
+- [ ] Replace `template-ts` wisely in the code.
+- [ ] Enjoy coding!
