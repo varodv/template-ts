@@ -1,14 +1,18 @@
-.DS_Store
+# Dev/Build outputs
+dist
+coverage
 
+# Node dependencies
 node_modules
 
-*-debug.log*
-yarn-error.log*
+# Logs
+*.log
 
-.eslintcache
+# Misc
+.DS_Store
+.idea
 
-dist
-
-*.tgz
-
-coverage
+# Local env files
+.env
+.env.*
+!.env.example
