@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": "^22.14",
+    "node": "^22.15",
     "pnpm": "^10"
   },
   "scripts": {
@@ -18,15 +18,15 @@
     "coverage": "vitest run --coverage"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "4.10.2",
-    "@vitest/coverage-v8": "3.0.9",
-    "eslint": "9.23.0",
+    "@antfu/eslint-config": "4.12.0",
+    "@vitest/coverage-v8": "3.1.2",
+    "eslint": "9.25.1",
     "eslint-plugin-format": "1.0.1",
     "husky": "9.1.7",
-    "lint-staged": "15.5.0",
-    "typescript": "5.8.2",
-    "vite": "6.2.2",
-    "vitest": "3.0.9"
+    "lint-staged": "15.5.1",
+    "typescript": "5.8.3",
+    "vite": "6.3.3",
+    "vitest": "3.1.2"
   },
   "lint-staged": {
     "*": "eslint --fix"
