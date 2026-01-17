@@ -11,7 +11,7 @@ Template repository for TypeScript projects.
 - [ ] Use this template to create a new repository.
 - [ ] Configure the new repository (Settings > General).
 - [ ] Set up branch protection rules if needed (Settings > Branches).
-- [ ] Give read and write permissions to workflows (Settings > Actions - General, needed for [coverage.yml](https://github.com/varodv/template-ts/blob/main/.github/workflows/coverage.yml)).
-- [ ] Review pull requests labels.
+- [ ] Give read and write permissions to workflows (Settings > Actions - General, needed for [coverage](https://github.com/varodv/template-ts/blob/main/.github/workflows/coverage.yml)).
+- [ ] Run [label-sync](https://github.com/varodv/template-ts/blob/main/.github/workflows/label-sync.yml) workflow to set up pull request labels.
 - [ ] Replace `template-ts` wisely in the code.
 - [ ] Enjoy coding!
